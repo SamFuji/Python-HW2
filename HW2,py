@@ -38,22 +38,54 @@
 #     print(k, end=' ')
 
 
+#  4 Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
 
 
-# Задайте список из N элементов, заполненных числами из промежутка [-N, N]. Найдите произведение элементов на указанных позициях. Позиции хранятся в файле file.txt в одной строке одно число.
-n = int(input('Enter the number: '))
+# n = int(input('Enter the number: '))
+# x = n*-1
+# mylist = []
+# i=0
+# while x<(n+1):
+#     mylist.insert(i,x)
+#     x += 1
+#     i += 1
+# print(mylist) # список от -N до N включительно
+
+# data = 'numbers.txt'
+# nbrs = open(data, 'r')
+# for line in nbrs:
+#     print(line)         # Вызов строки из файла
+# list_from_data = list(line.split(' '))
+# print(list_from_data) # формирование списка из строки
+
+# count = 1
+
+# for i in range(len(list_from_data)):
+#     x = int(list_from_data[i])
+#     count = count * mylist[x]
+# print('Произведение чисел из списка под индексами из файла = ', count)
+
+
+
+# 5 Реализуйте алгоритм перемешивания списка.
+
+
+from random import randint
+
+n = int(input('Enter the number: ')) # В качестве списка взял формирующийся список из предыдущей задачи
 x = n*-1
-mylist = []
+list_orig = []
 i=0
 while x<(n+1):
-    mylist.insert(i,x)
+    list_orig.insert(i,x)
     x += 1
     i += 1
-    print(mylist)
+print(list_orig)
 
-
-
-# Реализуйте алгоритм перемешивания списка.
-
-
-
+list_random = list_orig[:]  # Продублировал список, чтобы с ним работать
+for i in range(len(list_random)-1, 0, -1):
+    j = randint(0, i)
+    list_random[i], list_random[j] = list_random[j], list_random[i]
+     
+print ("The shuffled list is : ")
+print (str(list_random))
